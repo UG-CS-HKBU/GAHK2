@@ -1,14 +1,10 @@
 <template>
   <div class="container">
     <div class="col-lg-3 centered">
-      <img src="../assets/logo.png" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRba03rm_KYilCEUT_LOTYnn6DigiWthrCsvg&usqp=CAU" />
     </div>
     <div class="col-lg-9 jumbotron">
-      <h1>SurveyJS + VueJS bolierplate</h1>
-      <p>
-        We have been developing and supporting our library for several years. We helped hundreds of companies across many industries. We carefully reviewed every survey and form from our customerscustomers to add the necessary functionality that covers all the popular scenarios.
-        We are confident, that you can build almost everything, that popular cloud services offer, using SurveyJS library. You can extend our SurveyJS Library and change its behavior.
-      </p>
+     <p>Welcome to GAHK Website</p>
     </div>
   </div>
 </template>
