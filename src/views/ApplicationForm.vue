@@ -179,6 +179,7 @@ export default {
        ]
     };
     var model = new SurveyVue.Model(json);
+    model.showPreviewBeforeComplete = 'showAnsweredQuestions';
     model.onComplete.add(this.alertResults);
     return {
       survey: model
@@ -186,20 +187,49 @@ export default {
   },
   methods: {
     async alertResults(sender) {
-      const results = JSON.stringify(sender.data);
-      alert(results);
-      var response = await fetch("https://httpbin.org/post", {
-        method: "POST",
-        body: JSON.stringify(sender.data)
-      });
-      if (response.ok) {
-        var persons = await response.text();
-        alert(persons)
-        // `this` inside methods points to the Vue instance
-      } else {
-        alert(response.statusText);
-      }
+      // const results = sender.data;
+
+      // let list = localStorage.getItem('apply-course-page-data')
+
+      // if (list) {
+      //   list = JSON.parse(list)
+      // } else {
+      //   list = []
+      // }
+
+      // list.push(results)
+
+      // localStorage.setItem('apply-course-page-data', JSON.stringify(list))
+
+       var response = await fetch("http://localhost:1337/student/create", {
+              method: "POST",
+              body: JSON.stringify(sender.data)
+            });
+
+             if (response.ok) {
+              var students = await response.text();
+              console.log(students)
+              // `this` inside methods points to the Vue instance
+            } else {
+              console.log(response.statusText);
+            }
     },
+    // async alertResults(sender) {
+    //   const results = JSON.stringify(sender.data);
+
+    //   var response = await fetch("https://httpbin.org/post", {
+    //     method: "POST",
+    //     body: results
+    //   });
+
+    //   if (response.ok) {
+    //     var persons = await response.text();
+    //     alert(persons)
+    //     // `this` inside methods points to the Vue instance
+    //   } else {
+    //     alert(response.statusText);
+    //   }
+    // },
   },
 };
 </script>

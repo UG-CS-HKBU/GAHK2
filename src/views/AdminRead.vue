@@ -3,8 +3,8 @@
     <h2>All the created course are listed here!</h2>
     <div>
       <el-table :data="list2" border style="width: 100%">
-        <el-table-column type="expand">
-          <template>
+         <el-table-column type="expand">
+           <template slot-scope="props">
             <el-form label-position="left" inline class="demo-table-expand">
               <el-form-item label="课程编码">
                 <span>{{ props.row.code }}</span>
@@ -58,14 +58,12 @@
           </template>
         </el-table-column>
 
-        <template slot-scope="scope">
+        <template>
           <el-table-column type="index" label="id" width="120"> </el-table-column>
           <el-table-column prop="code" label="活动名称" width="120"> </el-table-column>
 
           <el-table-column label="操作" width="200">
-            <el-button @click="list2.splice(scope.$index, 1)" type="warning" size="large"
-              >删除</el-button
-            >
+            <el-button type="warning" size="large">删除</el-button>
             <el-button type="text" size="large">更新</el-button>
           </el-table-column>
         </template>
@@ -78,25 +76,23 @@
 /* eslint-disable vue/no-unused-components */
 export default {
   data() {
-    let list2 = localStorage.getItem("create-course-page-data");
-
-    if (list2) {
-      list2 = JSON.parse(list2);
-    }
-
-    return { list2: list2 || [] };
-
-    // return  {
-    //   info: []
+    // let list2 = localStorage.getItem("create-course-page-data");
+    // if (list2) {
+    //   list2 = JSON.parse(list2);
     // }
+    // return { list2: list2 || [] };
+
+    return  {
+      list2: []
+    }
   },
 
-  // mounted() {
-  //   fetch('http://localhost:8080/CreateCourse')
-  //   .then(res => res.json())
-  //   .then(data => this.info = data)
-  //   .catch(err => console.log(err.message))
-  // },
+  mounted() {
+    fetch('http://localhost:1337/course/json')
+    .then(res => res.json())
+    .then(data => this.list2 = data)
+    .catch(err => console.log(err.message))
+  },
 
   methods: {
     // handleDelete(index, row) {

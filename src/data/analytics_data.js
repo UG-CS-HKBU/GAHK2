@@ -1,6 +1,6 @@
 export const json = {
   completedHtml:
-    "<p style='font-size:24px;'>Thank you for completing the survey! (please wait for analytics to load ...)<p>",
+    "<p style='font-size:24px;'>Thank you for completing the creation form! (please wait for analytics to load ...)<p>",
   pages: [
     {
       name: "page_info",
@@ -9,8 +9,7 @@ export const json = {
           type: "radiogroup",
           name: "organization_type",
           title:
-            "Which of the following best describes you or your organization?",
-          hasOther: true,
+            "活动名称",
           choices: [
             {
               value: "ISV",
@@ -94,7 +93,6 @@ export const json = {
             "Twitter",
             "Facebook",
           ],
-          otherText: "Other",
           colCount: 3,
         },
       ],
@@ -139,7 +137,6 @@ export const json = {
             "Ruby",
           ],
           choicesOrder: "asc",
-          otherText: "Other (Please name it)",
           colCount: 3,
         },
       ],
@@ -225,7 +222,6 @@ export const json = {
             "xamarin",
             "native iOS and Android apps",
           ],
-          otherText: "Other (Please name it)",
           colCount: 2,
         },
       ],
@@ -241,8 +237,7 @@ export const json = {
           isRequired: true,
           hasOther: true,
           choices: ["Use popular Survey cloud platforms", "Develop ourselves"],
-          otherText: "Other (please name)",
-        },
+          },
         {
           type: "text",
           name: "survey_cloud_platform",

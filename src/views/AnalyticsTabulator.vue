@@ -1,7 +1,6 @@
 <template>
   <div class="container">
-    <h2>Results Table - display survey results in the table form</h2>
-    <span>Uses Tabulator. Supports modern browsers.</span>
+    <h2>Results Table</h2>
     <div id="tableContainer"></div>
   </div>
 </template>

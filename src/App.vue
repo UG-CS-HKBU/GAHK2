@@ -13,9 +13,14 @@
             <router-link to="/applicationform">Application Form</router-link>
           </li>
           <li>
-            <router-link to="/myapplications">My Applications</router-link>
+            <router-link to="/myapplications">Student Read</router-link>
           </li>
-
+           <li>
+            <router-link to="/adminread">Admin Read</router-link>
+          </li>
+          <li>
+            <router-link to="/adminmanage">Admin Manage</router-link>
+          </li>
         </ul>
       </div>
     </nav>
@@ -26,9 +31,12 @@
 <script>
 import Vue from "vue";
 import VueRouter from "vue-router";
+import ElementUI from 'element-ui';
 
 import "bootstrap/dist/css/bootstrap.css";
+import "element-ui/lib/theme-chalk/index.css"
 
+Vue.use(ElementUI);
 Vue.use(VueRouter);
 
 const Home = () => import("./views/Home.vue");
@@ -38,6 +46,10 @@ const ApplicationForm = () =>
   import(/* webpackChunkName: "applicationform" */ "./views/ApplicationForm.vue");
 const MyApplications = () =>
   import(/* webpackChunkName: "myapplications" */ "./views/MyApplications.vue");
+  const AdminRead = () =>
+  import(/* webpackChunkName: "adminread" */ "./views/AdminRead.vue");
+   const AdminManage = () =>
+  import(/* webpackChunkName: "adminmanage" */ "./views/AdminManage.vue");
 const ExportToPDF = () =>
   import(/* webpackChunkName: "creator" */ "./views/ExportToPDF.vue");
 const Analytics = () =>
@@ -70,6 +82,8 @@ const router = new VueRouter({
     // Bar and Baz belong to the same root route
     // and grouped in the same async chunk.
     { path: "/myapplications", component: MyApplications },
+    { path: "/adminread", component: AdminRead },
+    { path: "/adminmanage", component: AdminManage },
     { path: "/exportpdf", component: ExportToPDF },
     { path: "/analytics", component: Analytics },
     { path: "/analyticstabulator", component: AnalyticsTabulator },
