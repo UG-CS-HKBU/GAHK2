@@ -15,11 +15,7 @@
           <el-button type="text" >查看详情</el-button>
           <el-button type="text" size="large">取消申请</el-button>
           <el-dialog title="活动详情" :append-to-body="true">
-            <el-table  :data="list">
-             <el-table-column property="item" label="活动项目" width="200"></el-table-column>
-             <el-table-column property="code" label="活动编码" width="200"></el-table-column>
-             <el-table-column property="level" label="活动难度" width="200"></el-table-column>
-            </el-table>
+            
           </el-dialog>
          
         </el-table-column>

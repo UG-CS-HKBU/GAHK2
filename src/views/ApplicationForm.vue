@@ -61,13 +61,17 @@ export default {
             "autoComplete": "code"
             },
             {
+            "type": "dropdown",
             "name": "level",
-            "type": "text",
             "title": "课程级别",
-            "placeHolder": "master",
             "isRequired": true,
-            "autoComplete": "level"
-            },
+            "colCount": 0,
+            "choices": [
+                 "高",
+                "中等",
+                "低"
+                        ]
+            }
           ],
         "name": "basciInfo",
         "title": "课程及个人基本信息",

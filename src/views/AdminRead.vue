@@ -63,7 +63,7 @@
           <el-table-column prop="code" label="活动名称" width="120"> </el-table-column>
 
           <el-table-column label="操作" width="200">
-            <el-button type="warning" size="large">删除</el-button>
+            <el-button type="warning" size="large" @click="deleteCourse(1)">删除</el-button>
             <el-button type="text" size="large">更新</el-button>
           </el-table-column>
         </template>
@@ -95,39 +95,26 @@ export default {
   },
 
   methods: {
-    // handleDelete(index, row) {
-    // this.$confirm("此操作将删除该课程所有信息, 是否继续?", "提示", {
-    //   cancelButtonText: "取消",
-    //   confirmButtonText: "确定",
-    //   type: "warning"
-    // })
-    //   .then(() => {
-    //     this.axios
-    //       .get("http://localhost:8080/AdminRead/Delete?id=" + row.Id)
-    //       .then(result => {
-    //         if (result.status == 200 || result.status == 302) {
-    //           this.$message({
-    //             message: "删除成功",
-    //             type: "success"
-    //           });
-    //           this.getAllcourses();
-    //         }
-    //       })
-    //       .catch(err => { // eslint-disable-line no-unused-vars
-    //         this.$message({
-    //           message: "删除失败",
-    //           type: "danger"
-    //         });
-    //       });
-    //   })
-    //   .catch(() => {
-    //     this.$message({
-    //       type: "info",
-    //       message: "已取消删除"
-    //     });
-    //   });
-    // },
+      async deleteCourse(id) {
+        console.log(id);
+        var r = confirm("Confirm Delete?");
+        if (r) {
+            var response = await fetch("http://localhost:1337/course/" + id, {
+                method: "DELETE",
+            });
+            if (response.ok) {
+                var html = await response.text();
+                alert(html);
+            } else {
+                alert(response.status + ": " + response.statusText);
+            }
+        } else {
+            alert("cancelled");
+        }
+    },
+
   },
+
 };
 </script>
 

@@ -1,7 +1,7 @@
 <template>
-    <div class="container">
+  <div class="container">
     <survey :survey="survey"></survey>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -216,7 +216,7 @@ export default {
             var response = await fetch("http://localhost:1337/course/create", {
               method: "POST",
               body: JSON.stringify(sender.data)
-             
+
             });
 
             if (response.ok) {
@@ -233,9 +233,9 @@ export default {
 
 <style>
 #app {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
 }
 </style>
