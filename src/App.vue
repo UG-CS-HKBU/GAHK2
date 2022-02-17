@@ -9,9 +9,9 @@
            <li>
             <router-link to="/createcourse">Create Course</router-link>
           </li>
-          <li>
+          <!-- <li>
             <router-link to="/applicationform">Application Form</router-link>
-          </li>
+          </li> -->
           <li>
             <router-link to="/myapplications">Student Read</router-link>
           </li>
@@ -31,12 +31,15 @@
 <script>
 import Vue from "vue";
 import VueRouter from "vue-router";
+import Oruga from '@oruga-ui/oruga'
 import ElementUI from 'element-ui';
 
 import "bootstrap/dist/css/bootstrap.css";
 import "element-ui/lib/theme-chalk/index.css"
+import '@oruga-ui/oruga/dist/oruga.css'
 
 Vue.use(ElementUI);
+Vue.use(Oruga);
 Vue.use(VueRouter);
 
 const Home = () => import("./views/Home.vue");
@@ -66,7 +69,7 @@ const router = new VueRouter({
     { path: "/", component: Home },
     { path: "/createcourse", component: CreateCourse },
     // Just use them normally in the route config
-    { path: "/applicationform", component: ApplicationForm },
+    { path: "/applicationform/:id", component: ApplicationForm },
     // multiple parameters, `/` should not be encoded. The name is also important
     // https://github.com/vuejs/vue-router/issues/2719
     // { path: '/a/:tags*', name: 'tagged', component: () => new Promise(resolve => {

@@ -10,7 +10,7 @@
     </div>
 
     <div>
-      <el-table :data="list2" border style="width: 100%">
+      <!-- <el-table :data="list2" border style="width: 100%">
         <el-table-column type="expand">
           <template slot-scope="props">
             <el-form label-position="left" inline class="demo-table-expand">
@@ -70,11 +70,57 @@
           <el-table-column type="index" label="id" width="120"> </el-table-column>
           <el-table-column prop="code" label="活动名称" width="120"> </el-table-column>
 
-          <el-table-column label="操作" width="200">
-             <router-link to="/applicationform">去申请页面</router-link>
+          <el-table-column prop="code" label="操作" width="200">
+             <router-link :to="'/applicationform/'+ code">去申请页面</router-link>
           </el-table-column>
         </template>
-      </el-table>
+      </el-table> -->
+
+      <o-table
+        :data="isEmpty ? [] : data"
+        :bordered="isBordered"
+        :striped="isStriped"
+        :narrowed="isNarrowed"
+        :hoverable="isHoverable"
+        :loading="isLoading"
+        :focusable="isFocusable"
+        :mobile-cards="hasMobileCards"
+      >
+        <o-table-column field="id" label="ID" width="40" numeric v-slot="props">
+          {{ props.row.id }}
+        </o-table-column>
+
+        <o-table-column field="code" label="活动名称" v-slot="props">
+          {{ props.row.code }}
+        </o-table-column>
+
+        <!-- <o-table-column field="last_name" label="Last Name" v-slot="props">
+          {{ props.row.last_name }}
+        </o-table-column> -->
+
+        <!-- <o-table-column
+          field="date"
+          label="Date"
+          position="centered"
+          v-slot="props"
+        >
+          {{ new Date(props.row.date).toLocaleDateString() }}
+        </o-table-column> -->
+
+        <o-table-column label="操作" v-slot="props">
+          <span>
+            <!-- <o-icon
+              pack="fas"
+              :icon="props.row.gender === 'Male' ? 'mars' : 'venus'"
+            >
+            </o-icon> -->
+            <!-- {{ props.row.gender }} -->
+            <router-link :to="'/applicationform/' + props.row.id"
+              >去申请页面</router-link
+            >
+          </span>
+        </o-table-column>
+      </o-table>
     </div>
   </div>
 </template>
@@ -83,18 +129,26 @@
 import "bootstrap/dist/css/bootstrap.css";
 export default {
   data() {
-    return  {
-      list2: []
-    }
+    return {
+      data: [],
+      isEmpty: false,
+      isBordered: false,
+      isStriped: false,
+      isNarrowed: false,
+      isHoverable: false,
+      isFocusable: false,
+      isLoading: false,
+      hasMobileCards: true,
+    };
   },
 
   mounted() {
-    fetch('http://localhost:1337/course/json')
-    .then(res => res.json())
-    .then(data => this.list2 = data)
-    .catch(err => console.log(err.message))
-  }
-  };
+    fetch("http://localhost:1337/course/json")
+      .then((res) => res.json())
+      .then((data) => (this.data = data))
+      .catch((err) => console.log(err.message));
+  },
+};
 </script>
 
 <style>
