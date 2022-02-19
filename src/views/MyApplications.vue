@@ -2,10 +2,34 @@
   <div class="container">
     <h2>All the applied course are listed here!</h2>
     <div>
-      <el-table :data="list" border style="width: 100%">
-        <el-table-column type="index" label="id" width="120">
-        </el-table-column>
-        <el-table-column prop="item" label="活动项目" width="120">
+      <o-table
+        :data="isEmpty ? [] : data"
+        :bordered="isBordered"
+        :striped="isStriped"
+        :narrowed="isNarrowed"
+        :hoverable="isHoverable"
+        :loading="isLoading"
+        :focusable="isFocusable"
+        :mobile-cards="hasMobileCards"
+      >
+        <o-table-column field="id" label="ID" width="40" numeric v-slot="props">
+          {{ props.row.id }}
+        </o-table-column>
+
+        <o-table-column field="code" label="活动名称" v-slot="props">
+          {{ props.row.code }}
+        </o-table-column>
+
+         <o-table-column label="操作">
+          <span>
+            <button>查看详情</button>
+            <button>取消申请</button>
+          </span>
+        </o-table-column>
+      </o-table>
+
+      <!-- <el-table :data="list" border style="width: 100%">
+        <el-table-column type="index" label="ID" width="120">
         </el-table-column>
         <el-table-column prop="code" label="活动编码" width="120">
         </el-table-column>
@@ -19,13 +43,13 @@
           </el-dialog>
          
         </el-table-column>
-      </el-table>
+      </el-table> -->
     </div>
   </div>
 </template>
 
 <script>
-
+import "bootstrap/dist/css/bootstrap.css";
 /* eslint-disable vue/no-unused-components */
 export default {
   data() {
@@ -37,20 +61,26 @@ export default {
     //   list: list || [],
     //   dialogTableVisible: false,
     // };
-     return  {
-      list: []
-    }
+    return {
+      data: [],
+      isEmpty: false,
+      isBordered: false,
+      isStriped: false,
+      isNarrowed: false,
+      isHoverable: false,
+      isFocusable: false,
+      isLoading: false,
+      hasMobileCards: true,
+    };
   },
-   mounted() {
-    fetch('http://localhost:1337/student/json')
-    .then(res => res.json())
-    .then(data => this.list = data)
-    .catch(err => console.log(err.message))
+  mounted() {
+    fetch("http://localhost:1337/course/json")
+      .then((res) => res.json())
+      .then((data) => (this.data = data))
+      .catch((err) => console.log(err.message));
   },
 
-  methods:{
-
-  },
+  methods: {},
 };
 </script>
 

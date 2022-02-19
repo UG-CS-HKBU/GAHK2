@@ -1,5 +1,36 @@
 <template>
+<h2>{{ applicantInfo }}</h2>
 <div>
+ <o-table
+        :data="isEmpty ? [] : data"
+        :bordered="isBordered"
+        :striped="isStriped"
+        :narrowed="isNarrowed"
+        :hoverable="isHoverable"
+        :loading="isLoading"
+        :focusable="isFocusable"
+        :mobile-cards="hasMobileCards"
+      >
+
+       <o-table-column field="id" label="ID" width="40" numeric v-slot="props">
+          {{ props.row.id }}
+        </o-table-column>
+        <o-table-column field="code" label="课程编码" v-slot="props">
+          {{ props.row.code }}
+        </o-table-column>
+        <o-table-column field="category" label="体操类别" v-slot="props">
+          {{ props.row.category }}
+        </o-table-column>
+        <o-table-column field="difficulity" label="项目难度" v-slot="props">
+          {{ props.row.difficulity }}
+        </o-table-column>
+        <o-table-column field="coach" label="教练" v-slot="props">
+          {{ props.row.code }}
+        </o-table-column>
+      </o-table>
+</div>
+
+<!-- <div>
       <el-table :data="list3" border style="width: 100%">
         <el-table-column type="index" label="id" width="80">
         </el-table-column>
@@ -33,49 +64,39 @@
          
         </el-table-column>
       </el-table>
-    </div>
-
-
-<!-- <div> -->
-  <!-- <el-table :data="list3" border style="width: 100%">
-        <el-table-column type="expand">
-          <template slot-scope="props">
-            <el-form label-position="left" inline class="demo-table-expand">
-              <el-form-item label="课程编码">
-                <span>{{ props.row.code }}</span>
-              </el-form-item><br>
-              <el-form-item label="姓名">
-                <span>{{ props.row.address }}</span>
-              </el-form-item><br>
-            </el-form>
-          </template>
-        </el-table-column>
-
-        <template>
-          <el-table-column type="index" label="id" width="120"> </el-table-column>
-          <el-table-column prop="address" label="活动名称" width="120"> </el-table-column>
-
-          <el-table-column label="操作" width="200">
-             <router-link to="/applicationform">去申请页面</router-link>
-          </el-table-column>
-        </template>
-      </el-table>
-  </div> -->
+    </div> -->
 </template>
 
 <script>
+import "bootstrap/dist/css/bootstrap.css";
   export default {
     data() {
       return {
-        list3: []
-      }
+      data: [],
+      isEmpty: false,
+      isBordered: false,
+      isStriped: false,
+      isNarrowed: false,
+      isHoverable: false,
+      isFocusable: false,
+      isLoading: false,
+      hasMobileCards: true,
+      applicantInfo: {},
+    };
     },
 
-     mounted() {
-    fetch('http://localhost:1337/student/:id/course')
-    .then(res => res.json())
-    .then(data => this.list3 = data)
-    .catch(err => console.log(err.message))
+  async mounted() {
+    // fetch("http://localhost:1337/student/:id/course")
+    // .then(res => res.json())
+    // .then(data => this.data = data)
+    // .catch(err => console.log(err.message))
+
+    var response = await fetch(
+      "http://localhost:1337/student/" +this.$route.params.id+ "/course" 
+    );
+    if (response.ok) {
+      this.applicantInfo = await response.json();
+    }
   },
 
   }

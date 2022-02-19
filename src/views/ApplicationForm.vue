@@ -175,17 +175,13 @@ export default {
   methods: {
     async alertResults(sender) {
       // const results = sender.data;
-
       // let list = localStorage.getItem('apply-course-page-data')
-
       // if (list) {
       //   list = JSON.parse(list)
       // } else {
       //   list = []
       // }
-
       // list.push(results)
-
       // localStorage.setItem('apply-course-page-data', JSON.stringify(list))
 
       var response = await fetch("http://localhost:1337/student/create", {
@@ -201,22 +197,6 @@ export default {
         console.log(response.statusText);
       }
     },
-    // async alertResults(sender) {
-    //   const results = JSON.stringify(sender.data);
-
-    //   var response = await fetch("https://httpbin.org/post", {
-    //     method: "POST",
-    //     body: results
-    //   });
-
-    //   if (response.ok) {
-    //     var persons = await response.text();
-    //     alert(persons)
-    //     // `this` inside methods points to the Vue instance
-    //   } else {
-    //     alert(response.statusText);
-    //   }
-    // },
   },
   async mounted() {
     var response = await fetch(

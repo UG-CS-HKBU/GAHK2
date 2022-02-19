@@ -115,9 +115,7 @@
             >
             </o-icon> -->
             <!-- {{ props.row.gender }} -->
-            <router-link :to="'/applicationform/' + props.row.id"
-              >去申请页面</router-link
-            >
+            <router-link :to="'/applicationform/' + props.row.id">去申请页面</router-link>
           </span>
         </o-table-column>
       </o-table>

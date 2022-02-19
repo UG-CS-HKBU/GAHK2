@@ -2,7 +2,7 @@
   <div class="container">
     <h2>All the created course are listed here!</h2>
     <div>
-      <el-table :data="list2" border style="width: 100%">
+     <!-- <el-table :data="list2" border style="width: 100%">
          <el-table-column type="expand">
            <template slot-scope="props">
             <el-form label-position="left" inline class="demo-table-expand">
@@ -62,17 +62,55 @@
           <el-table-column type="index" label="id" width="120"> </el-table-column>
           <el-table-column prop="code" label="活动名称" width="120"> </el-table-column>
 
-          <el-table-column label="操作" width="200">
+          <el-table-column slot-scope="props" label="操作" width="200">
             <el-button type="warning" size="large" @click="deleteCourse(1)">删除</el-button>
             <el-button type="text" size="large">更新</el-button>
+             <el-button type="text" size="large">申请名单</el-button> 
+             <router-link :to="'/adminmanage/' + props.row.id">申请人名单</router-link
+            > 
           </el-table-column>
         </template>
-      </el-table>
+      </el-table>   -->
+
+       <o-table
+        :data="isEmpty ? [] : data"
+        :bordered="isBordered"
+        :striped="isStriped"
+        :narrowed="isNarrowed"
+        :hoverable="isHoverable"
+        :loading="isLoading"
+        :focusable="isFocusable"
+        :mobile-cards="hasMobileCards"
+      >
+
+       <o-table-column field="id" label="ID" width="40" numeric v-slot="props">
+          {{ props.row.id }}
+        </o-table-column>
+        <o-table-column field="code" label="课程编码" v-slot="props">
+          {{ props.row.code }}
+        </o-table-column>
+        <o-table-column field="category" label="体操类别" v-slot="props">
+          {{ props.row.category }}
+        </o-table-column>
+        <o-table-column field="difficulity" label="项目难度" v-slot="props">
+          {{ props.row.difficulity }}
+        </o-table-column>
+        <o-table-column field="coach" label="教练" v-slot="props">
+          {{ props.row.code }}
+        </o-table-column>
+
+         <o-table-column label="操作" v-slot="props">
+          <span>
+            <router-link :to="'/adminmanage/' + props.row.id">申请人名单</router-link>
+          </span>
+        </o-table-column>
+      </o-table>
     </div>
   </div>
 </template>
 
 <script>
+import "bootstrap/dist/css/bootstrap.css";
 /* eslint-disable vue/no-unused-components */
 export default {
   data() {
@@ -82,38 +120,46 @@ export default {
     // }
     // return { list2: list2 || [] };
 
-    return  {
-      list2: []
-    }
+   return {
+      data: [],
+      isEmpty: false,
+      isBordered: false,
+      isStriped: false,
+      isNarrowed: false,
+      isHoverable: false,
+      isFocusable: false,
+      isLoading: false,
+      hasMobileCards: true,
+    };
   },
 
   mounted() {
     fetch('http://localhost:1337/course/json')
     .then(res => res.json())
-    .then(data => this.list2 = data)
+    .then(data => this.data = data)
     .catch(err => console.log(err.message))
   },
 
-  methods: {
-      async deleteCourse(id) {
-        console.log(id);
-        var r = confirm("Confirm Delete?");
-        if (r) {
-            var response = await fetch("http://localhost:1337/course/" + id, {
-                method: "DELETE",
-            });
-            if (response.ok) {
-                var html = await response.text();
-                alert(html);
-            } else {
-                alert(response.status + ": " + response.statusText);
-            }
-        } else {
-            alert("cancelled");
-        }
-    },
+  // methods: {
+  //     async deleteCourse(id) {
+  //       console.log(id);
+  //       var r = confirm("Confirm Delete?");
+  //       if (r) {
+  //           var response = await fetch("http://localhost:1337/course/" + id, {
+  //               method: "DELETE",
+  //           });
+  //           if (response.ok) {
+  //               var html = await response.text();
+  //               alert(html);
+  //           } else {
+  //               alert(response.status + ": " + response.statusText);
+  //           }
+  //       } else {
+  //           alert("cancelled");
+  //       }
+  //   },
 
-  },
+  // },
 
 };
 </script>
