@@ -108,7 +108,7 @@
         </o-table-column> -->
 
         <o-table-column label="操作" v-slot="props">
-          <span>
+          <button>
             <!-- <o-icon
               pack="fas"
               :icon="props.row.gender === 'Male' ? 'mars' : 'venus'"
@@ -116,7 +116,7 @@
             </o-icon> -->
             <!-- {{ props.row.gender }} -->
             <router-link :to="'/applicationform/' + props.row.id">去申请页面</router-link>
-          </span>
+          </button>
         </o-table-column>
       </o-table>
     </div>

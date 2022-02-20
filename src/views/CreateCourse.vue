@@ -75,13 +75,14 @@ export default {
             {
               type: "multipletext",
               name: "dates",
+              title: "日期",
               isRequired: true,
               colCount: 3,
               validators: [
                 {
                   type: "expression",
                   expression:
-                    "{dates.Sdate} <= {dates.Edate} && {dates.Ddate} <= {daets.Sdate}",
+                    "{dates.Sdate} <= {dates.Edate} and {dates.Sdate} >= {dates.Ddate}",
                   text: "Please correct the date.",
                 },
               ],
@@ -89,20 +90,12 @@ export default {
                 {
                   name: "Sdate",
                   title: "开始日期",
-                  validators: [
-                    {
-                      type: "date",
-                    },
-                  ],
+                  inputType: "date",
                 },
                 {
                   name: "Edate",
                   title: "结束日期",
-                  validators: [
-                    {
-                      type: "date",
-                    },
-                  ],
+                  inputType: "date",
                 },
                 {
                   name: "Ddate",
@@ -120,27 +113,27 @@ export default {
             },
             {
               type: "comment",
-              name: "dates",
+              name: "Alldates",
               title: "所有上课日期",
             },
             {
               name: "time",
               type: "text",
               title: "截止时间",
-              isRequred: true,
-              autoComplete: "time",
+              isRequred: false,             
             },
             {
               type: "multipletext",
               name: "ages",
+              title:"年龄限制",
               isRequired: true,
               colCount: 2,
               validators: [
                 {
                   type: "expression",
-                  expression: "{ages.Uage} <= {ages.Lage}",
+                  expression: "{ages.Uage} >= {ages.Lage}",
                   text:
-                    "Please correct the age. The first value should be less or equal to the second one.",
+                    "Please correct the age. The first value should be large or equal to the second one.",
                 },
               ],
               items: [
@@ -205,7 +198,7 @@ export default {
               validators: [
                 {
                   type: "numeric",
-                  mminValue: 0,
+                  minValue: 0,
                 },
               ],
             },

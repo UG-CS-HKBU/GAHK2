@@ -100,8 +100,14 @@
         </o-table-column>
 
          <o-table-column label="操作" v-slot="props">
-          <span>
+          <button>
             <router-link :to="'/adminmanage/' + props.row.id">申请人名单</router-link>
+          </button>
+           <button>
+            <router-link :to="'/createcourse/' + props.row.id">更新</router-link>
+          </button>
+          <span>
+          <button @click="deleteCourse(props.row.id)">删除</button>
           </span>
         </o-table-column>
       </o-table>
@@ -140,26 +146,26 @@ export default {
     .catch(err => console.log(err.message))
   },
 
-  // methods: {
-  //     async deleteCourse(id) {
-  //       console.log(id);
-  //       var r = confirm("Confirm Delete?");
-  //       if (r) {
-  //           var response = await fetch("http://localhost:1337/course/" + id, {
-  //               method: "DELETE",
-  //           });
-  //           if (response.ok) {
-  //               var html = await response.text();
-  //               alert(html);
-  //           } else {
-  //               alert(response.status + ": " + response.statusText);
-  //           }
-  //       } else {
-  //           alert("cancelled");
-  //       }
-  //   },
+  methods: {
+      async deleteCourse(id) {
+        console.log(id);
+        var r = confirm("Confirm Delete?");
+        if (r) {
+            var response = await fetch("http://localhost:1337/course/" + id, {
+                method: "DELETE",
+            });
+            if (response.ok) {
+                var html = await response.text();
+                alert(html);
+            } else {
+                alert(response.status + ": " + response.statusText);
+            }
+        } else {
+            alert("cancelled");
+        }
+    },
 
-  // },
+  },
 
 };
 </script>

@@ -83,11 +83,6 @@ export default {
               placeHolder: "用户007",
               isRequired: true,
               autoComplete: "Ename",
-              validators: [
-                {
-                    "type": "String"
-                }
-            ]
             },
             {
               name: "tel",
