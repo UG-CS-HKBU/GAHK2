@@ -92,7 +92,7 @@ import "bootstrap/dist/css/bootstrap.css";
     // .catch(err => console.log(err.message))
 
     var response = await fetch(
-      "http://localhost:1337/student/" +this.$route.params.id+ "/course" 
+      "http://localhost:1337/student/:id/course" 
     );
     if (response.ok) {
       this.applicantInfo = await response.json();

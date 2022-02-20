@@ -83,6 +83,11 @@ export default {
               placeHolder: "用户007",
               isRequired: true,
               autoComplete: "Ename",
+              validators: [
+                {
+                    "type": "String"
+                }
+            ]
             },
             {
               name: "tel",
@@ -90,6 +95,11 @@ export default {
               title: "電話",
               isRequired: true,
               autoComplete: "tel",
+              validators: [
+                {
+                    "type": "numeric"
+                }
+            ]
             },
             {
               name: "address",
@@ -138,7 +148,7 @@ export default {
             {
               type: "html",
               name: "words2",
-              html: "<p>本人已細閱及明瞭<a href='https://www.google.com/url?q=http://www.gahk.org.hk/doc/Physical%2520Activity%2520Readiness.pdf&sa=D&source=editors&ust=1616178427803000&usg=AFQjCNHF3NxAuur-qus3owpd-rcF6yQUQA' target='_blank'>附件一</a>之體能及健康須知，並同時聲明本人/敝子女身體狀況良好及具備足夠之體能及技術完成賽事或訓練課程。</p>",
+              html: "<p>本人已細閱及明瞭<a href='http://www.gahk.org.hk/doc/Physical%20Activity%20Readiness.pdf'>附件一</a>之體能及健康須知，並同時聲明本人/敝子女身體狀況良好及具備足夠之體能及技術完成賽事或訓練課程。</p>",
             },
             {
               type: "checkbox",
