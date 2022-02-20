@@ -1,36 +1,34 @@
 <template>
-<h2>{{ applicantInfo }}</h2>
-<div>
- <o-table
-        :data="isEmpty ? [] : data"
-        :bordered="isBordered"
-        :striped="isStriped"
-        :narrowed="isNarrowed"
-        :hoverable="isHoverable"
-        :loading="isLoading"
-        :focusable="isFocusable"
-        :mobile-cards="hasMobileCards"
-      >
+  <div>
+    <h2>{{ applicantInfo }}</h2>
+    <o-table
+      :data="isEmpty ? [] : data"
+      :bordered="isBordered"
+      :striped="isStriped"
+      :narrowed="isNarrowed"
+      :hoverable="isHoverable"
+      :loading="isLoading"
+      :focusable="isFocusable"
+      :mobile-cards="hasMobileCards"
+    >
+      <o-table-column field="id" label="ID" width="40" numeric v-slot="props">
+        {{ props.row.id }}
+      </o-table-column>
+      <o-table-column field="code" label="课程编码" v-slot="props">
+        {{ props.row.code }}
+      </o-table-column>
+      <o-table-column field="category" label="体操类别" v-slot="props">
+        {{ props.row.category }}
+      </o-table-column>
+      <o-table-column field="difficulity" label="项目难度" v-slot="props">
+        {{ props.row.difficulity }}
+      </o-table-column>
+      <o-table-column field="coach" label="教练" v-slot="props">
+        {{ props.row.code }}
+      </o-table-column>
+    </o-table>
 
-       <o-table-column field="id" label="ID" width="40" numeric v-slot="props">
-          {{ props.row.id }}
-        </o-table-column>
-        <o-table-column field="code" label="课程编码" v-slot="props">
-          {{ props.row.code }}
-        </o-table-column>
-        <o-table-column field="category" label="体操类别" v-slot="props">
-          {{ props.row.category }}
-        </o-table-column>
-        <o-table-column field="difficulity" label="项目难度" v-slot="props">
-          {{ props.row.difficulity }}
-        </o-table-column>
-        <o-table-column field="coach" label="教练" v-slot="props">
-          {{ props.row.code }}
-        </o-table-column>
-      </o-table>
-</div>
-
-<!-- <div>
+    <!-- <div>
       <el-table :data="list3" border style="width: 100%">
         <el-table-column type="index" label="id" width="80">
         </el-table-column>
@@ -65,13 +63,14 @@
         </el-table-column>
       </el-table>
     </div> -->
+  </div>
 </template>
 
 <script>
 import "bootstrap/dist/css/bootstrap.css";
-  export default {
-    data() {
-      return {
+export default {
+  data() {
+    return {
       data: [],
       isEmpty: false,
       isBordered: false,
@@ -83,7 +82,7 @@ import "bootstrap/dist/css/bootstrap.css";
       hasMobileCards: true,
       applicantInfo: {},
     };
-    },
+  },
 
   async mounted() {
     // fetch("http://localhost:1337/student/:id/course")
@@ -91,13 +90,10 @@ import "bootstrap/dist/css/bootstrap.css";
     // .then(data => this.data = data)
     // .catch(err => console.log(err.message))
 
-    var response = await fetch(
-      "http://localhost:1337/student/:id/course" 
-    );
+    var response = await fetch("http://localhost:1337/student/:id/course");
     if (response.ok) {
       this.applicantInfo = await response.json();
     }
   },
-
-  }
+};
 </script>
