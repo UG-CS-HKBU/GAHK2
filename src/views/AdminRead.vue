@@ -104,7 +104,7 @@
             <router-link :to="'/adminmanage/' + props.row.id">申请人名单</router-link>
           </button>
            <button>
-            <router-link :to="'/createcourse/' + props.row.id">更新</router-link>
+            <router-link :to="'/createcourse/'">更新</router-link>
           </button>
           <span>
           <button @click="deleteCourse(props.row.id)">删除</button>

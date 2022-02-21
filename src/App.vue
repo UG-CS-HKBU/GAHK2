@@ -53,6 +53,8 @@ const MyApplications = () =>
   import(/* webpackChunkName: "adminread" */ "./views/AdminRead.vue");
    const AdminManage = () =>
   import(/* webpackChunkName: "adminmanage" */ "./views/AdminManage.vue");
+const StudentDetails = () =>
+  import(/* webpackChunkName: "studentdetails" */ "./views/StudentDetails.vue");
 const ExportToPDF = () =>
   import(/* webpackChunkName: "creator" */ "./views/ExportToPDF.vue");
 const Analytics = () =>
@@ -87,6 +89,7 @@ const router = new VueRouter({
     { path: "/myapplications", component: MyApplications },
     { path: "/adminread", component: AdminRead },
     { path: "/adminmanage", component: AdminManage },
+     { path: "/studentdetails/:id", component: StudentDetails },
     { path: "/exportpdf", component: ExportToPDF },
     { path: "/analytics", component: Analytics },
     { path: "/analyticstabulator", component: AnalyticsTabulator },

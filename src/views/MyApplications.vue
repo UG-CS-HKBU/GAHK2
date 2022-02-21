@@ -20,9 +20,11 @@
           {{ props.row.code }}
         </o-table-column>
 
-         <o-table-column label="操作">
+         <o-table-column label="操作" v-slot="props">
           <span>
-            <button>查看详情</button>
+            <button>
+             <router-link :to="'/studentdetails/'+ props.row.id">查看详情</router-link>
+            </button>
             <button>取消申请</button>
           </span>
         </o-table-column>
