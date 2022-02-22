@@ -25,7 +25,7 @@
             <button>
              <router-link :to="'/studentdetails/'+ props.row.id">查看详情</router-link>
             </button>
-            <button>取消申请</button>
+            <button @click="deleteCourse(props.row.id)">取消申请</button>
           </span>
         </o-table-column>
       </o-table>
@@ -82,7 +82,26 @@ export default {
       .catch((err) => console.log(err.message));
   },
 
-  methods: {},
+  methods: {
+      async deleteCourse(id) {
+        console.log(id);
+        var r = confirm("Confirm cancel applying?");
+        if (r) {
+            var response = await fetch("http://localhost:1337/student/course/remove/" + id, {
+                method: "DELETE",
+            });
+            if (response.ok) {
+                var html = await response.text();
+                alert(html);
+            } else {
+                alert(response.status + ": " + response.statusText);
+            }
+        } else {
+            alert("cancelled");
+        }
+    },
+
+  },
 };
 </script>
 
