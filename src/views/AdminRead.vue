@@ -22,8 +22,8 @@
         <o-table-column field="category" label="體操類別" v-slot="props">
           {{ props.row.category }}
         </o-table-column>
-        <o-table-column field="difficulity" label="項目難度" v-slot="props">
-          {{ props.row.difficulity }}
+        <o-table-column field="difficulty" label="項目難度" v-slot="props">
+          {{ props.row.difficulty }}
         </o-table-column>
         <o-table-column field="coach" label="教練" v-slot="props">
           {{ props.row.code }}

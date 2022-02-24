@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-  <h2>Here shows the details of the course</h2>
-  <o-table
+    <h2>Here shows the details of the course</h2>
+    <o-table
       :data="isEmpty ? [] : data"
       :bordered="isBordered"
       :striped="isStriped"
@@ -24,67 +24,42 @@
         {{ props.row.difficulty }}
       </o-table-column>
       <o-table-column field="coach" label="教練" v-slot="props">
-        {{ props.row.code }}
+        {{ props.row.coach }}
+      </o-table-column>
+      <o-table-column field="Sdate" label="開始日期" v-slot="props">
+        {{ props.row.dates.Sdate }}
+      </o-table-column>
+      <o-table-column field="Edate" label="結束日期" v-slot="props">
+        {{ props.row.dates.Edate }}
+      </o-table-column>
+      <!-- <o-table-column field="dates" label="上課日期" v-slot="props">
+        {{ props.row.dates }}
+      </o-table-column> -->
+      <o-table-column field="week" label="星期" v-slot="props">
+        {{ props.row.week }}
+      </o-table-column>
+      <!-- <o-table-column field="Uage" label="年齡上限" v-slot="props">
+        {{ props.row.Uage }}
+      </o-table-column>
+      <o-table-column field="Lage" label="年齡下限" v-slot="props">
+        {{ props.row.Lage }}
+      </o-table-column> -->
+      <o-table-column field="gym" label="體育館" v-slot="props">
+        {{ props.row.gym }}
+      </o-table-column>
+      <o-table-column field="gym1" label="場地" v-slot="props">
+        {{ props.row.gym1 }}
+      </o-table-column>
+      <o-table-column field="gym1" label="名額" v-slot="props">
+        {{ props.row.quato }}
+      </o-table-column>
+      <o-table-column field="gym1" label="費用" v-slot="props">
+        {{ props.row.fee }}
+      </o-table-column>
+      <o-table-column field="intro" label="内文" v-slot="props">
+        {{ props.row.intro }}
       </o-table-column>
     </o-table>
-    
-
-    <!-- <div>
-      <el-table :data="list2" border style="width: 100%">
-        <template slot-scope="props">
-          <el-form label-position="left" inline class="demo-table-expand">
-            <el-form-item label="課程編碼">
-              <span>{{ props.row.code }}</span> </el-form-item
-            ><br />
-            <el-form-item label="體操類別">
-              <span>{{ props.row.category }}</span> </el-form-item
-            ><br />
-            <el-form-item label="項目難度">
-              <span>{{ props.row.difficulty }}</span> </el-form-item
-            ><br />
-            <el-form-item label="教練">
-              <span>{{ props.row.coach }}</span> </el-form-item
-            ><br />
-            <el-form-item label="開始日期">
-              <span>{{ props.row.Sdate }}</span> </el-form-item
-            ><br />
-            <el-form-item label="結束日期">
-              <span>{{ props.row.Edate }}</span> </el-form-item
-            ><br />
-            <el-form-item label="星期">
-              <span>{{ props.row.week }}</span> </el-form-item
-            ><br />
-            <el-form-item label="上課日期">
-              <span>{{ props.row.dates }}</span> </el-form-item
-            ><br />
-            <el-form-item label="截止日期">
-              <span>{{ props.row.Ddate }}</span> </el-form-item
-            ><br />
-            <el-form-item label="年齡上限">
-              <span>{{ props.row.Uage }}</span> </el-form-item
-            ><br />
-            <el-form-item label="年齡下限">
-              <span>{{ props.row.Lage }}</span> </el-form-item
-            ><br />
-            <el-form-item label="體育館">
-              <span>{{ props.row.gym }}</span> </el-form-item
-            ><br />
-            <el-form-item label="場地">
-              <span>{{ props.row.gym1 }}</span> </el-form-item
-            ><br />
-            <el-form-item label="名額">
-              <span>{{ props.row.quato }}</span> </el-form-item
-            ><br />
-            <el-form-item label="費用">
-              <span>{{ props.row.fee }}</span> </el-form-item
-            ><br />
-            <el-form-item label="内文">
-              <span>{{ props.row.intro }}</span>
-            </el-form-item>
-          </el-form>
-        </template>
-      </el-table>
-    </div> -->
   </div>
 </template>
 
@@ -104,7 +79,7 @@ export default {
       hasMobileCards: true,
     };
   },
-   mounted() {
+  mounted() {
     fetch("http://localhost:1337/course/read/" + this.$route.params.id)
       .then((res) => res.json())
       .then((data) => (this.data = data))

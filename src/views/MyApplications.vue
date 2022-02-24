@@ -76,7 +76,7 @@ export default {
     };
   },
   mounted() {
-    fetch("http://localhost:1337/course/json")
+    fetch("http://localhost:1337/student/json")
       .then((res) => res.json())
       .then((data) => (this.data = data))
       .catch((err) => console.log(err.message));
