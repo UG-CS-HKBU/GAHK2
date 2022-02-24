@@ -41,7 +41,7 @@ export default {
             {
               name: "code",
               type: "text",
-              title: "课程编码",
+              title: "課程編碼",
               placeHolder: "A000007",
               isRequired: true,
               autoComplete: "code",
@@ -49,16 +49,16 @@ export default {
             {
               type: "dropdown",
               name: "category",
-              title: "体操类别",
+              title: "體操類別",
               isRequired: true,
               colCount: 0,
               hasNone: true,
-              choices: ["竞技体操", "艺术体操", "技巧体操", "弹网", "健美体操", "普及体操", "跑酷"],
+              choices: ["競技體操", "藝術體操", "技巧體操", "彈網", "健美體操", "普及體操", "跑酷"],
             },
             {
               type: "dropdown",
               name: "difficulty",
-              title: "项目难度",
+              title: "項目難度",
               isRequired: false,
               colCount: 0,
               choices: ["高", "中等", "低"],
@@ -66,7 +66,7 @@ export default {
             {
               type: "dropdown",
               name: "coach",
-              title: "教练",
+              title: "教練",
               isRequired: false,
               colCount: 0,
               hasNone: true,
@@ -89,12 +89,12 @@ export default {
               items: [
                 {
                   name: "Sdate",
-                  title: "开始日期",
+                  title: "開始日期",
                   inputType: "date",
                 },
                 {
                   name: "Edate",
-                  title: "结束日期",
+                  title: "結束日期",
                   inputType: "date",
                 },
                 {
@@ -114,18 +114,18 @@ export default {
             {
               type: "comment",
               name: "Alldates",
-              title: "所有上课日期",
+              title: "所有上課日期",
             },
             {
               name: "time",
               type: "text",
-              title: "截止时间",
+              title: "截止時間",
               isRequred: false,             
             },
             {
               type: "multipletext",
               name: "ages",
-              title:"年龄限制",
+              title:"年齡限制",
               isRequired: true,
               colCount: 2,
               validators: [
@@ -139,7 +139,7 @@ export default {
               items: [
                 {
                   name: "Uage",
-                  title: "年龄上限",
+                  title: "年齡上限",
                   validators: [
                     {
                       type: "numeric",
@@ -149,7 +149,7 @@ export default {
                 },
                 {
                   name: "Lage",
-                  title: "年龄下限",
+                  title: "年齡下限",
                   validators: [
                     {
                       type: "numeric",
@@ -162,24 +162,24 @@ export default {
             {
               type: "dropdown",
               name: "gym",
-              title: "体育馆",
+              title: "體育館",
               isRequired: true,
               colCount: 0,
               hasNone: true,
-              choices: ["体育馆1号", "体育馆2号", "体育馆3号"],
+              choices: ["體育館1號", "體育館2號", "體育館3號"],
             },
             {
               type: "dropdown",
               name: "gym1",
-              title: "场地",
+              title: "場地",
               colCount: 0,
               hasNone: true,
-              choices: ["蹦床馆", "单杠馆", "训练室"],
+              choices: ["蹦床館", "單鋼館", "訓練室"],
             },
             {
               name: "quato",
               type: "text",
-              title: "名额",
+              title: "名額",
               isRequired: true,
               autoComplete: "quato",
               validators: [
@@ -193,7 +193,7 @@ export default {
             {
               name: "fee",
               type: "text",
-              title: "费用",
+              title: "費用",
               isRequired: true,
               validators: [
                 {
@@ -205,7 +205,7 @@ export default {
             {
               type: "comment",
               name: "intro",
-              title: "内文",
+              title: "內文",
             },
           ],
         },

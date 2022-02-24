@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <!-- If you want to hide survey, comment the lines below -->
-    <h2>课程报名</h2>
+    <h2>課程報名</h2>
     <h2>{{ courseInfo }}</h2>
     <survey :survey="survey"></survey>
   </div>
@@ -43,20 +43,20 @@ export default {
       pages: [
         // {
         //   navigationTitle: "基本信息",
-        //   navigationDescription: "课程资料&个人信息",
+        //   navigationDescription: "課程資料&個人信息",
         //   questions: [
         //     {
         //       name: "item",
         //       type: "text",
-        //       title: "报名项目",
-        //       placeHolder: "竞技体操",
+        //       title: "報名項目",
+        //       placeHolder: "競技體操",
         //       isRequired: true,
         //       autoComplete: "name",
         //     },
         //     {
         //       name: "code",
         //       type: "text",
-        //       title: "课程编码",
+        //       title: "課程編碼",
         //       placeHolder: "A000007",
         //       isRequired: true,
         //       autoComplete: "code",
@@ -64,23 +64,23 @@ export default {
         //     {
         //       type: "dropdown",
         //       name: "level",
-        //       title: "课程级别",
+        //       title: "課程級別",
         //       isRequired: true,
         //       colCount: 0,
         //       choices: ["高", "中等", "低"],
         //     },
         //   ],
         //   name: "basciInfo",
-        //   title: "课程及个人基本信息",
+        //   title: "課程資料&個人信息",
         // },
         {
-          navigationTitle: "紧急联系人信息",
+          navigationTitle: "緊急聯繫人信息",
           questions: [
             {
               name: "Ename",
               type: "text",
               title: "姓名（中文）",
-              placeHolder: "用户007",
+              placeHolder: "用戶007",
               isRequired: true,
               autoComplete: "Ename",
             },
@@ -105,10 +105,10 @@ export default {
             },
           ],
           name: "EmerageInfo",
-          title: "紧急联系人信息",
+          title: "緊急聯繫你人信息",
         },
         {
-          navigationTitle: "缴费方式",
+          navigationTitle: "繳費方式",
           questions: [
             {
               type: "radiogroup",
@@ -121,10 +121,10 @@ export default {
             },
           ],
           name: "paymentM",
-          title: "缴费方式",
+          title: "繳費方式",
         },
         {
-          navigationTitle: "声明",
+          navigationTitle: "聲明",
           questions: [
             {
               type: "radiogroup",
@@ -148,7 +148,7 @@ export default {
             {
               type: "checkbox",
               name: "isAgree",
-              title: "是否同意上述声明",
+              title: "是否同意上述聲明",
               isRequired: true,
               hasNone: false,
               colCount: 1,
@@ -165,7 +165,7 @@ export default {
             },
           ],
           name: "declare",
-          title: "声明",
+          title: "聲明",
         },
       ],
     };

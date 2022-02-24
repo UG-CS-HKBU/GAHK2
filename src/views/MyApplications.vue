@@ -16,16 +16,16 @@
           {{ props.row.id }}
         </o-table-column>
 
-        <o-table-column field="code" label="活动名称" v-slot="props">
+        <o-table-column field="code" label="活動名稱" v-slot="props">
           {{ props.row.code }}
         </o-table-column>
 
          <o-table-column label="操作" v-slot="props">
           <span>
             <button>
-             <router-link :to="'/studentdetails/'+ props.row.id">查看详情</router-link>
+             <router-link :to="'/studentdetails/'+ props.row.id">查看詳情</router-link>
             </button>
-            <button @click="deleteCourse(props.row.id)">取消申请</button>
+            <button @click="deleteCourse(props.row.id)">取消申請</button>
           </span>
         </o-table-column>
       </o-table>
@@ -33,14 +33,14 @@
       <!-- <el-table :data="list" border style="width: 100%">
         <el-table-column type="index" label="ID" width="120">
         </el-table-column>
-        <el-table-column prop="code" label="活动编码" width="120">
+        <el-table-column prop="code" label="活動編碼" width="120">
         </el-table-column>
         
         <el-table-column label="操作" width="200">
           
-          <el-button type="text" >查看详情</el-button>
-          <el-button type="text" size="large">取消申请</el-button>
-          <el-dialog title="活动详情" :append-to-body="true">
+          <el-button type="text" >查看詳情</el-button>
+          <el-button type="text" size="large">取消申請</el-button>
+          <el-dialog title="活動詳情" :append-to-body="true">
             
           </el-dialog>
          

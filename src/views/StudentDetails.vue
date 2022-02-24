@@ -14,16 +14,16 @@
       <o-table-column field="id" label="ID" width="40" numeric v-slot="props">
         {{ props.row.id }}
       </o-table-column>
-      <o-table-column field="code" label="课程编码" v-slot="props">
+      <o-table-column field="code" label="課程編碼" v-slot="props">
         {{ props.row.code }}
       </o-table-column>
-      <o-table-column field="category" label="体操类别" v-slot="props">
+      <o-table-column field="category" label="體操類別" v-slot="props">
         {{ props.row.category }}
       </o-table-column>
-      <o-table-column field="difficulty" label="项目难度" v-slot="props">
+      <o-table-column field="difficulty" label="項目難度" v-slot="props">
         {{ props.row.difficulty }}
       </o-table-column>
-      <o-table-column field="coach" label="教练" v-slot="props">
+      <o-table-column field="coach" label="教練" v-slot="props">
         {{ props.row.code }}
       </o-table-column>
     </o-table>
@@ -33,49 +33,49 @@
       <el-table :data="list2" border style="width: 100%">
         <template slot-scope="props">
           <el-form label-position="left" inline class="demo-table-expand">
-            <el-form-item label="课程编码">
+            <el-form-item label="課程編碼">
               <span>{{ props.row.code }}</span> </el-form-item
             ><br />
-            <el-form-item label="体操类别">
+            <el-form-item label="體操類別">
               <span>{{ props.row.category }}</span> </el-form-item
             ><br />
-            <el-form-item label="项目难度">
+            <el-form-item label="項目難度">
               <span>{{ props.row.difficulty }}</span> </el-form-item
             ><br />
-            <el-form-item label="教练">
+            <el-form-item label="教練">
               <span>{{ props.row.coach }}</span> </el-form-item
             ><br />
-            <el-form-item label="开始日期">
+            <el-form-item label="開始日期">
               <span>{{ props.row.Sdate }}</span> </el-form-item
             ><br />
-            <el-form-item label="结束日期">
+            <el-form-item label="結束日期">
               <span>{{ props.row.Edate }}</span> </el-form-item
             ><br />
             <el-form-item label="星期">
               <span>{{ props.row.week }}</span> </el-form-item
             ><br />
-            <el-form-item label="上课日期">
+            <el-form-item label="上課日期">
               <span>{{ props.row.dates }}</span> </el-form-item
             ><br />
             <el-form-item label="截止日期">
               <span>{{ props.row.Ddate }}</span> </el-form-item
             ><br />
-            <el-form-item label="年龄上限">
+            <el-form-item label="年齡上限">
               <span>{{ props.row.Uage }}</span> </el-form-item
             ><br />
-            <el-form-item label="年龄下限">
+            <el-form-item label="年齡下限">
               <span>{{ props.row.Lage }}</span> </el-form-item
             ><br />
-            <el-form-item label="体育馆">
+            <el-form-item label="體育館">
               <span>{{ props.row.gym }}</span> </el-form-item
             ><br />
-            <el-form-item label="场地">
+            <el-form-item label="場地">
               <span>{{ props.row.gym1 }}</span> </el-form-item
             ><br />
-            <el-form-item label="名额">
+            <el-form-item label="名額">
               <span>{{ props.row.quato }}</span> </el-form-item
             ><br />
-            <el-form-item label="费用">
+            <el-form-item label="費用">
               <span>{{ props.row.fee }}</span> </el-form-item
             ><br />
             <el-form-item label="内文">

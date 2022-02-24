@@ -90,7 +90,7 @@
           {{ props.row.id }}
         </o-table-column>
 
-        <o-table-column field="code" label="活动名称" v-slot="props">
+        <o-table-column field="code" label="活動名稱" v-slot="props">
           {{ props.row.code }}
         </o-table-column>
 
@@ -115,7 +115,7 @@
             >
             </o-icon> -->
             <!-- {{ props.row.gender }} -->
-            <router-link :to="'/applicationform/' + props.row.id">去申请页面</router-link>
+            <router-link :to="'/applicationform/' + props.row.id">去申請頁面</router-link>
           </button>
         </o-table-column>
       </o-table>

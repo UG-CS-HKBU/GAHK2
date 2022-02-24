@@ -14,16 +14,16 @@
       <o-table-column field="id" label="ID" width="40" numeric v-slot="props">
         {{ props.row.id }}
       </o-table-column>
-      <o-table-column field="code" label="课程编码" v-slot="props">
+      <o-table-column field="code" label="課程編碼" v-slot="props">
         {{ props.row.code }}
       </o-table-column>
-      <o-table-column field="category" label="体操类别" v-slot="props">
+      <o-table-column field="category" label="體操類別" v-slot="props">
         {{ props.row.category }}
       </o-table-column>
-      <o-table-column field="difficulity" label="项目难度" v-slot="props">
+      <o-table-column field="difficulity" label="項目難度" v-slot="props">
         {{ props.row.difficulity }}
       </o-table-column>
-      <o-table-column field="coach" label="教练" v-slot="props">
+      <o-table-column field="coach" label="教練" v-slot="props">
         {{ props.row.code }}
       </o-table-column>
     </o-table>
@@ -32,32 +32,32 @@
       <el-table :data="list3" border style="width: 100%">
         <el-table-column type="index" label="id" width="80">
         </el-table-column>
-        <el-table-column prop="item" label="活动项目" width="120">
+        <el-table-column prop="item" label="活動項目" width="120">
         </el-table-column>
-        <el-table-column prop="code" label="活动编码" width="120">
+        <el-table-column prop="code" label="活動編碼" width="120">
         </el-table-column>
-         <el-table-column prop="level" label="难度" width="120">
+         <el-table-column prop="level" label="難度" width="120">
         </el-table-column>
-         <el-table-column prop="Ename" label="紧急联系人姓名" width="120">
+         <el-table-column prop="Ename" label="緊急聯繫人姓名" width="120">
         </el-table-column>
-        <el-table-column prop="tel" label="紧急联系人电话" width="120">
+        <el-table-column prop="tel" label="緊急聯繫人電話" width="120">
         </el-table-column>
         <el-table-column prop="address" label="住址" width="120">
         </el-table-column>
         <el-table-column prop="paying" label="付款方式" width="120">
         </el-table-column>
-        <el-table-column prop="isOld" label="是否年满18岁" width="120">
+        <el-table-column prop="isOld" label="是否年滿18歲" width="120">
         </el-table-column>
         <el-table-column prop="isAgree" label="制度同意程度" width="120">
         </el-table-column>
-        <el-table-column prop="isCorrect" label="资料正确性" width="120">
+        <el-table-column prop="isCorrect" label="資料正確性" width="120">
         </el-table-column>
         
         <el-table-column label="操作" width="200">
           
-          <el-button type="text" >查看详情</el-button>
-          <el-button type="text" size="large">取消申请</el-button>
-          <el-dialog title="活动详情" :append-to-body="true">
+          <el-button type="text" >查看詳情</el-button>
+          <el-button type="text" size="large">取消申請</el-button>
+          <el-dialog title="活動詳情" :append-to-body="true">
           </el-dialog>
          
         </el-table-column>
