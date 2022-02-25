@@ -26,6 +26,11 @@
       <o-table-column field="coach" label="教練" v-slot="props">
         {{ props.row.code }}
       </o-table-column>
+
+      <o-table-column label="操作">
+          <button>同意</button>
+           <button>拒绝</button> 
+      </o-table-column>
     </o-table>
 
     <!-- <div>

@@ -88,11 +88,14 @@ export default {
         var r = confirm("Confirm cancel applying?");
         if (r) {
             var response = await fetch("http://localhost:1337/student/course/remove/" + id, {
-                method: "DELETE",
+                method: "POST",
             });
-            if (response.ok) {
-                var html = await response.text();
-                alert(html);
+             if (response.ok) {
+                alert("Cancel application successfully!.");
+            }
+            else if (response.status == 409) {
+                var msg = await response.json();
+                alert(msg);
             } else {
                 alert(response.status + ": " + response.statusText);
             }
